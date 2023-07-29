@@ -1,11 +1,14 @@
+/* eslint-disable react/prop-types */
 import "./button.component.scss";
-import {MdMessage} from "react-icons/md";
-const Button = () => {
+
+
+const Button = (props) => {
   return (
-    <div>
-      <MdMessage/>
-    </div>
-  )
-}
+    <button className="primary-btn">
+      {props.icon}
+      {props.text}
+    </button>
+  );
+};
 
 export default Button;
