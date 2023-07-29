@@ -1,9 +1,9 @@
 container{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    max-width: 1000px;
-    margin: 0 auto;
+    display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 40px;
+  align-items: end;
 }
 
 .top-btn {
@@ -15,8 +15,6 @@ container{
     display: flex;
     flex-direction: column;
     gap: 24px;
-    height: 540px;
-    width: 470px;
   }
   .contact-form form {
     display: flex;
@@ -24,6 +22,7 @@ container{
     padding-bottom: 20px;
     flex-direction: column;
   }
+  
   .form-control {
     display: flex;
     flex-direction: column;
@@ -47,14 +46,4 @@ container{
     padding: 0 10px;
   }
   
-  .contact-image {
-    flex: 1; /* Let the image take available space */
-    display: flex;
-    justify-content: flex-end; /* Align the image to the right */
-    align-items: center; /* Vertically center the image */
-  }
-  
-  .contact-image img {
-    max-width: 100%; /* Ensure the image doesn't exceed its container */
-    max-height: 100%;
-  }
+ 
