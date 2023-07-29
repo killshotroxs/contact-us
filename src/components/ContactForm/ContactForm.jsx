@@ -1,15 +1,26 @@
-import { MdMessage } from "react-icons/md";
 import Button from "../Button/Button";
-import "./ContactForm.component.scss";
+import styles from "./Contact.module.css";
+import { MdMessage } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
-import CONIMAGE from "../../../public/images/contact.svg"
-
+import { useState } from "react";
 const ContactForm = () => {
+  const [name, setName] = useState("Krishnal");
+  const [email, setEmail] = useState("krishnal@hotmail.com");
+  const [text, setText] = useState("Test this Feature");
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    setName(event.target[0].value);
+    setEmail(event.target[1].value);
+    setText(event.target[2].value);
+  };
+
   return (
-    <section className="container">
-      <div className="contact-form">
-        <div className="top-btn">
+    <section className={styles.container}>
+      <div className={styles.contact_form}>
+        <div className={styles.top_btn}>
           <Button
             text="VIA SUPPORT CHAT"
             icon={<MdMessage fontSize="24px" />}
@@ -21,32 +32,35 @@ const ContactForm = () => {
           text="VIA EMAIL FORM"
           icon={<HiMail fontSize="24px" />}
         />
-        
-        <form>
-          <div className="form-control">
+
+        <form onSubmit={onSubmit}>
+          <div className={styles.form_control}>
             <label htmlFor="name">Name</label>
             <input type="text" name="name" />
           </div>
-          
-          <div className="form-control">
-            <label htmlFor="name">E-mail</label>
+          <div className={styles.form_control}>
+            <label htmlFor="email">Email</label>
             <input type="email" name="email" />
           </div>
-          
-          <div className="form-control">
-            <label htmlFor="name">Text</label>
-            <textarea type="textarea" rows="8" name="Text" />
+          <div className={styles.form_control}>
+            <label htmlFor="text">Text</label>
+            <textarea name="text" rows="8" />
           </div>
-          <div>
-            <Button text="SUBMIT" />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "end",
+            }}
+          >
+            <Button text="SUBMIT BUTTON" />
           </div>
+
+          <div>{name + " " + email + " " + text}</div>
         </form>
       </div>
-
-      <div className="contact-image">
-        <img src={CONIMAGE} alt="contact image" />
+      <div className={styles.contact_image}>
+        <img src="/images/contact.svg" alt="contact image" />
       </div>
-      
     </section>
   );
 };
