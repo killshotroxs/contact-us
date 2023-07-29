@@ -1,10 +1,11 @@
 import "./navigation.component.scss";
+import LOGO from "../../../public/images/logo.png"
 
 const Navigation = () => {
   return (
     <nav className="navigation container">
       <div className="logo">
-        <img src="../../../public/images/logo.png" />
+        <img src={LOGO}/>
       </div>
       <ul>
         <li>Home</li>
